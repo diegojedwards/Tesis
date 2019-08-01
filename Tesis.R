@@ -1,4 +1,4 @@
-# require(ggplot2)
+require(ggplot2)
 require(tidyr)
 library(latex2exp)
 
@@ -36,7 +36,6 @@ for (i in 1 : 11){
   
 }
 
-
 #Agrego a la base de las mediciones la variable respuesta con los instantes donde 
 #se producen el contacto de talón y el toe-off.
 #Agrego tambien el promedio de las 3 mediciones.
@@ -53,7 +52,6 @@ for (i in 1 : 11){
 }
 
 #Verifico donde está el primer 1 o 2
-
 
 i <- 1
 while(LF_IW[[1]]$contact[i] < 1) {i <- i + 1}
@@ -72,7 +70,6 @@ ggplot() + geom_line(aes(x = 1 : to[3], y = accX), LF_IW[[1]][1 : to[3],], colou
            geom_vline(xintercept= hs[2], colour = "blue") + 
            xlab("pasos") + ylab("eje") + theme_bw()
 
-
 base1 <- gather(LF_IW[[1]][1 : to[3], c("accX", "accY", "accZ")], ejes, valor)
 base1$seg <- 1 : to[3]
 base1$ejes <- as.factor(base1$ejes)
@@ -87,7 +84,6 @@ ggplot(base1[], aes(x = seg, y = valor, colour = ejes))+
   theme(plot.title = element_text(hjust = 0.5), title = element_text(size=15), text = element_text(size=20)) +
   ggtitle("Señales de ejes X, Y, Z") 
 
-
 ggplot() + geom_line(aes(x = 1 : to[3], y = valor), LF_IW[[1]][1 : to[3],], colour="red")
 
 ##Pruebas
@@ -100,7 +96,6 @@ ggplot(LF_IW[[1]][1:1000,], aes(x = 1 : 1000, y = promedio)) + geom_line() +
   geom_vline(xintercept= hs[1], colour = "green") +
   geom_vline(xintercept= to[2], colour = "yellow") +
   geom_vline(xintercept= hs[2], colour = "green")
-
 
 #Analizo las correlaciones entre las var. predictoras
 
