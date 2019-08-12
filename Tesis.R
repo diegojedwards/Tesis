@@ -1,4 +1,4 @@
-#require(ggplot2)
+require(ggplot2)
 require(tidyr)
 library(latex2exp)
 
