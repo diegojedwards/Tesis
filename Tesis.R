@@ -46,7 +46,6 @@ for (i in 1 : 11){
   var_contac[ind[[i]]$LF_TO] <- 1
   var_contac[ind[[i]]$LF_HS] <- 2
   
-  
   LF_IW[[i]]$contact <- var_contac
   LF_IW[[i]]$promedio <- apply(LF_IW[[i]], 1, mean)
 }
@@ -96,6 +95,16 @@ ggplot(LF_IW[[1]][1:1000,], aes(x = 1 : 1000, y = promedio)) + geom_line() +
   geom_vline(xintercept= hs[1], colour = "green") +
   geom_vline(xintercept= to[2], colour = "yellow") +
   geom_vline(xintercept= hs[2], colour = "green")
+
+
+LF_IW[[1]]$contact <- as.factor(LF_IW[[1]]$contact)
+
+ggplot(LF_IW[[1]], aes(accX, accY, colour = contact)) + geom_point()
+scatter3D(LF_IW[[1]]$accX, LF_IW[[1]]$accY, LF_IW[[1]]$accZ, colvar = LF_IW[[1]]$contact, add = FALSE)
+
+p <- plot_ly(LF_IW[[1]], x = ~accX, y = ~accY, z = ~accZ,
+             marker = list(color = ~contact, colorscale = c('#FFE1A1', '#683531'), showscale = TRUE))
+
 
 #Analizo las correlaciones entre las var. predictoras
 

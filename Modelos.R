@@ -9,7 +9,7 @@ train <- sample(1:length(LF_IW[[1]][,1]), length(LF_IW[[1]][,1])*0.7)
 b.train <- LF_IW[[1]][train, ]
 b.test <- LF_IW[[1]][-train,]
 
-b.train %>% group_by(contact) %>% summarise(mean(promedio)) #Summary para cada valor de contacto
+b.train %>% group_by(contact) %>% summarise(mean(promedio), sd(promedio)) #Summary para cada valor de contacto
 
 #Modelo multinomial 
 
@@ -27,11 +27,14 @@ result.modelo2 <- summary(modelo2)
 apply(result.modelo2$fitted.values, 1, sum)
 predicciones <- predict(modelo2, b.test)
 
-
 #Pruebo una red neuronal
 
 NN <- neuralnet(contact ~ accX + accY + accZ, b.train, hidden = 3 , linear.output = FALSE)
 plot(NN)
 
-predict_testNN = compute(NN, b.test[,1:3])
+predict_testNN = predict(NN, b.test[,1:3])
 predict_testNN = (predict_testNN$net.result * (max(data$rating) - min(data$rating))) + min(data$rating)
+
+#Random forest
+
+modelRF <- randomForest(contact ~ ., LF_IW[[1]])
