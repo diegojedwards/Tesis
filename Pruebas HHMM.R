@@ -2,7 +2,7 @@ library("depmixS4")
 library("HMM")
 library("mhsmm")
 
-#------------Cargo las bases que voy a utilzar-----------------
+#----------Cargo las bases que voy a utilzar-----------------
 
 Ind1_LF_ac <- read.csv("Ind1_LF_ac.csv")
 
