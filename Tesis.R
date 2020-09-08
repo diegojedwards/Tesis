@@ -76,19 +76,6 @@ hs <- which(LF_IW[[1]]$contact == 2)
 
 #Grafico la señal con los pasos
 
-<<<<<<< HEAD
-=======
-ggplot() + geom_line(aes(x = 1 : to[4], y = accX), LF_IW[[1]][1 : to[4],], colour="red") +
-           geom_line(aes(x = 1 : to[4], y = accY), LF_IW[[1]][1 : to[4],], colour="blue")  +
-           geom_line(aes(x = 1 : to[4], y = accZ), LF_IW[[1]][1 : to[4],]) + 
-           geom_vline(xintercept= to[1], colour = "black") +
-           geom_vline(xintercept= hs[1], colour = "blue") +
-           geom_vline(xintercept= to[2], colour = "black") +
-           geom_vline(xintercept= hs[2], colour = "blue") +
-           geom_vline(xintercept= to[3], colour = "black") +
-           geom_vline(xintercept= hs[3], colour = "blue") +
-           xlab("pasos") + ylab("eje") + theme_bw()
-
 base1 <- gather(LF_IW[[1]][1 : to[4], c("accX", "accY", "accZ")], ejes, valor)
 base1$seg <- 1 : to[4]
 base1$ejes <- as.factor(base1$ejes)
@@ -115,18 +102,6 @@ j <- i
 while(LF_IW[[2]]$contact[j] < 2) {j <- j + 1}
 hs <- which(LF_IW[[2]]$contact == 2)
 
-ggplot() + geom_line(aes(x = 1 : to[4], y = accX), LF_IW[[2]][1 : to[4],], colour="red") +
-  geom_line(aes(x = 1 : to[4], y = accY), LF_IW[[2]][1 : to[4],], colour="blue")  +
-  geom_line(aes(x = 1 : to[4], y = accZ), LF_IW[[2]][1 : to[4],]) + 
-  geom_vline(xintercept= to[1], colour = "black") +
-  geom_vline(xintercept= hs[1], colour = "blue") +
-  geom_vline(xintercept= to[2], colour = "black") +
-  geom_vline(xintercept= hs[2], colour = "blue") +
-  geom_vline(xintercept= to[3], colour = "black") +
-  geom_vline(xintercept= hs[3], colour = "blue") +
-  xlab("pasos") + ylab("eje") + theme_bw()
-
->>>>>>> 143e9715e0031e5a555086af097ff5d983058aa0
 base1 <- gather(LF_IW[[1]][1 : to[4], c("accX", "accY", "accZ")], ejes, valor)
 base1$seg <- 1 : to[4]
 base1$ejes <- as.factor(base1$ejes)
@@ -143,12 +118,11 @@ ggplot(base1[], aes(x = seg, y = valor, colour = ejes))+
 
 # ggplot() + geom_line(aes(x = 1 : to[3], y = valor), LF_IW[[1]][1 : to[3],], colour="red")
 
-<<<<<<< HEAD
+
 #Verifico donde está el primer 1 o 2 del individuo 2
-=======
+
 
 ##Pruebas
->>>>>>> 143e9715e0031e5a555086af097ff5d983058aa0
 
 i <- 1
 while(LF_IW[[2]]$contact[i] < 1) {i <- i + 1}
@@ -158,11 +132,11 @@ j <- i
 while(LF_IW[[2]]$contact[j] < 2) {j <- j + 1}
 hs <- which(LF_IW[[2]]$contact == 2)
 
-<<<<<<< HEAD
+
 base1 <- gather(LF_IW[[1]][1 : to[4], c("accX", "accY", "accZ")], ejes, valor)
 base1$seg <- 1 : to[4]
 base1$ejes <- as.factor(base1$ejes)
-=======
+
 ggplot(LF_IW[[1]][1:1000,], aes(x = 1 : 1000, y = promedio)) + geom_line() + 
   geom_vline(xintercept= to[1], colour = "yellow") +
   geom_vline(xintercept= hs[1], colour = "green") +
@@ -173,7 +147,7 @@ ggplot(LF_IW[[1]][1:1000,], aes(x = 1 : 1000, y = promedio)) + geom_line() +
   geom_vline(xintercept= to[4], colour = "yellow") +
   geom_vline(xintercept= hs[4], colour = "green") 
   
->>>>>>> 143e9715e0031e5a555086af097ff5d983058aa0
+
 
 ggplot(base1[], aes(x = seg, y = valor, colour = ejes))+  
   geom_line()+
